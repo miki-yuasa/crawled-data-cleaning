@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "crawled-data-cleaning"
+version = "0.1.0"
+description = "ウェブクロールデータのクリーニング"
+authors = ["Mikihisa Yuasa <myuasa2@illinois.edu>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "crawled_data_cleaning"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
