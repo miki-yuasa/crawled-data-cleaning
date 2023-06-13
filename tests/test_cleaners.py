@@ -31,6 +31,12 @@ NTTPCは、2/22（水）、23（木）に津久見市で開催された『つく
 
 
 def test_remove_repeating_new_lines():
+    log_path: str = "tmp/log.txt"
     cleaned_text = remove_repeating_new_lines(text)
+
+    with open(log_path, "w", encoding="utf-8") as f:
+        f.write(cleaned_text)
+
     print(cleaned_text)
+
     assert cleaned_text is not None
