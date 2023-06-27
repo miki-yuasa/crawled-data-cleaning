@@ -104,7 +104,7 @@ def remove_footer(text: str) -> str:
         Text with footer texts removed
     """
 
-    cleaned_text: str = re.sub(r"典拠管理 全般[\s\S]*本文の横幅制限を有効化／無効化", "", text)
+    cleaned_text: str = re.sub(r"表話編歴[\s\S]*典拠管理 全般[\s\S]*本文の横幅制限を有効化／無効化", "", text)
 
     return cleaned_text
 

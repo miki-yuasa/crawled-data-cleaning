@@ -7,7 +7,7 @@ from crawled_data_cleaning.wikipedia import (
     clean_wikipedia_page,
 )
 
-text_file_path: str = "assets/texts/ryoko.txt"
+text_file_path: str = "assets/texts/hikakin.txt"
 
 with open(text_file_path, "r", encoding="utf-8") as f:
     text: str = f.read()
