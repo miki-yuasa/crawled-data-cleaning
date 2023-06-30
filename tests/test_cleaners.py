@@ -1,3 +1,5 @@
+import re
+
 from crawled_data_cleaning.cleaner import (
     remove_repeating_new_lines,
     remove_nav_texts,
@@ -19,7 +21,7 @@ def test_remove_repeating_new_lines():
 
     print(cleaned_text)
 
-    assert cleaned_text is not None
+    assert re.search("\n\n", cleaned_text) is None
 
 
 def test_remove_nav_texts():
@@ -31,16 +33,27 @@ def test_remove_nav_texts():
 
     print(cleaned_text)
 
-    assert cleaned_text is not None
+    assert (
+        re.search(
+            "(CONTACT|TOP|ABOUT|BACK TO LIST|JOIN US|Contact|Top|About)", cleaned_text
+        )
+        is None
+    )
 
 
 def test_remove_text_gpt():
     log_path: str = "tmp/log_gpt.txt"
-    cleaned_text = remove_text_gpt(text)
+    cleaned_text = remove_text_gpt(text, gpt_model="gpt-4")
 
     with open(log_path, "w", encoding="utf-8") as f:
         f.write(cleaned_text)
 
     print(cleaned_text)
 
-    assert cleaned_text is not None
+    assert (
+        re.search(
+            "(CONTACT|TOP|ABOUT|BACK TO LIST|JOIN US|Contact|Top|About)|\n+",
+            cleaned_text,
+        )
+        is None
+    )
